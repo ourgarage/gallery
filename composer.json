@@ -1,0 +1,21 @@
+{
+  "name": "ourgarage/gallery",
+  "description": "gallery",
+  "type": "package",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "OurGarage Team",
+      "email": "ourgarage@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "intervention/image": "2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ourgarage\\Contacts\\": "src/"
+    }
+  }
+}
