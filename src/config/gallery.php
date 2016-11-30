@@ -8,7 +8,7 @@ return [
 
         'menu' => [
             'url' => 'static-pages::admin::index',
-            'caption' => 'Static Pages',
+            'caption' => 'Gallery',
             'icon' => 'fa fa-file-text-o',
             'active' => 'static-pages::admin::index',
         ],
