@@ -15,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Ourgarage\\Contacts\\": "src/"
+      "Ourgarage\\Gallery\\": "src/"
     }
   }
 }
