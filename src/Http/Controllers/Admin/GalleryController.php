@@ -1,6 +1,6 @@
 <?php
 
-namespace Ourgarage\Gallery\Http\Controllers;
+namespace Ourgarage\Gallery\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Notifications;

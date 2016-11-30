@@ -22,7 +22,7 @@ class GalleryServiceProvider extends ServiceProvider
     }
 
     public function register() {
-        $this->app->make('Ourgarage\Gallery\Http\Controllers\GalleryController');
+        $this->app->make('Ourgarage\Gallery\Http\Controllers\Admin\GalleryController');
         $this->app->make('Ourgarage\Gallery\Models\GalleryPicture');
         $this->app->make('Ourgarage\Gallery\Models\GalleryCategory');
         $this->app->make('Ourgarage\Gallery\Models\GalleryCategoriesList');
