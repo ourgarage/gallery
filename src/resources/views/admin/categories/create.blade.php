@@ -1,7 +1,7 @@
 @extends('admin.main')
 
 @section('body-title')
-    {{ trans('gallery::gallery.admin.categories-index.title') }}
+    {{ trans('gallery::gallery.admin.categories-create-update.title') }}
 
     <a href="{{ route('gallery::categories::create') }}" class="btn btn-success pull-right">
         <i class="fa fa-plus"></i> {{ trans('gallery::gallery.admin.button.create') }}
@@ -10,7 +10,7 @@
 
 @section('body')
     <div>
-        @if(!$categories->isEmpty())
+        @if(isset($category))
 
             <div class="table-responsive">
                 <table class="table table-hover">

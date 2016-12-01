@@ -18,9 +18,9 @@ class GalleryCategoriesController extends Controller
     {
         $categories = new GalleryPresenter();
         $categories = $categories->getAllCategories();
-        
+
         \Title::prepend(trans('dashboard.title.prepend'));
-        \Title::append(trans('gallery::gallery.admin.title.pictures-index'));
+        \Title::append(trans('gallery::gallery.admin.title.categories-index'));
 
         return view('gallery::admin.categories.index')->withCategories($categories);
     }
@@ -32,7 +32,10 @@ class GalleryCategoriesController extends Controller
      */
     public function create()
     {
-        //
+        \Title::prepend(trans('dashboard.title.prepend'));
+        \Title::append(trans('gallery::gallery.admin.title.categories-create'));
+
+        return view('gallery::admin.categories.create');
     }
 
     /**
