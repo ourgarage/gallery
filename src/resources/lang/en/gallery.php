@@ -4,7 +4,8 @@ return [
 
     'admin' => [
         'title' => [
-            'index' => 'Gallery',
+            'pictures-index' => 'Pictures gallery',
+            'categories-index' => 'Pictures categories',
         ],
     ]
 

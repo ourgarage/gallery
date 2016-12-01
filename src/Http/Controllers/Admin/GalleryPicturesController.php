@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Ourgarage\Gallery\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Notifications;
 
 class GalleryPicturesController extends Controller
 {
@@ -13,7 +15,10 @@ class GalleryPicturesController extends Controller
      */
     public function index()
     {
-        //
+        \Title::prepend(trans('dashboard.title.prepend'));
+        \Title::append(trans('gallery::gallery.admin.title.pictures-index'));
+
+        return view('gallery::admin.pictures.index');
     }
 
     /**

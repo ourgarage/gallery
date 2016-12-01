@@ -13,16 +13,16 @@ return [
             'active' => 'gallery::index',
             'subitems' => [
                 [
-                    'url' => 'gallery::index',
+                    'url' => 'gallery::pictures::index',
                     'caption' => 'Pictures',
                     'icon' => 'fa fa-file-picture-o',
-                    'active' => 'blog::admin::categories::index'
+                    'active' => 'gallery::pictures::index'
                 ],
                 [
-                    'url' => 'blog::admin::posts::index',
+                    'url' => 'gallery::categories::index',
                     'caption' => 'Categories',
                     'icon' => 'fa fa-tags',
-                    'active' => 'blog::admin::posts::index'
+                    'active' => 'gallery::categories::index'
                 ]
             ]
         ],
