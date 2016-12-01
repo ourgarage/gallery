@@ -1,20 +1,17 @@
 @extends('admin.main')
 
 @section('body-title')
+    {{ trans('gallery::gallery.admin.categories-index.title') }}
 
-    {{ trans('contacts::contacts.admin.index-page-name') }}
-
-    <a href="{{ route('contacts::admin::contactCreate') }}" class="btn btn-success pull-right">
-        <i class="fa fa-plus"></i> {{ trans('contacts::contacts.admin.create-btn') }}
+    <a href="{{ route('gallery::categories::create') }}" class="btn btn-success pull-right">
+        <i class="fa fa-plus"></i> {{ trans('gallery::gallery.admin.button.create') }}
     </a>
-
 @endsection
 
 @section('body')
-
     <div>
         @if(/*!$contacts->isEmpty()*/1==1)
-
+{{ dd($categories) }}
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -26,7 +23,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    //
+                    <tr>
+                        <td>1</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -37,6 +36,5 @@
             </div>
         @endif
     </div>
-
 @endsection
 

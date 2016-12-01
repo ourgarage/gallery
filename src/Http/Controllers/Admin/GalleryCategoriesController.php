@@ -5,6 +5,7 @@ namespace Ourgarage\Gallery\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Notifications;
+use Ourgarage\Gallery\Presenters\GalleryPresenter;
 
 class GalleryCategoriesController extends Controller
 {
@@ -15,10 +16,13 @@ class GalleryCategoriesController extends Controller
      */
     public function index()
     {
+        $categories = new GalleryPresenter();
+        $categories = $categories->getAllCategories();
+        
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('gallery::gallery.admin.title.pictures-index'));
 
-        return view('gallery::admin.categories.index');
+        return view('gallery::admin.categories.index')->withCategories($categories);
     }
 
     /**

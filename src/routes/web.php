@@ -6,5 +6,6 @@ Route::group(['middleware' => 'web', 'namespace' => 'Ourgarage\Gallery\Http\Cont
 
     
     Route::get('/categories', 'Admin\GalleryCategoriesController@index')->name('gallery::categories::index');
+    Route::get('/categories/create', 'Admin\GalleryCategoriesController@create')->name('gallery::categories::create');
 
 });
