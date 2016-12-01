@@ -2,7 +2,7 @@
 
 Route::group(['middleware' => 'web', 'namespace' => 'Ourgarage\Gallery\Http\Controllers'], function () {
 
-
+    Route::get('/gallery', 'Admin\GalleryController@index')->name('gallery::index');
 //    Route::get('/contacts', 'ContactsController@index')->name('contacts::index');
 //
 //    Route::get('/admin/contacts', 'ContactsController@adminContactsIndex')->name('contacts::admin::contactsIndex')->middleware('auth');

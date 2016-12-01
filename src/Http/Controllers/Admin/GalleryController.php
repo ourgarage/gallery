@@ -7,6 +7,13 @@ use Notifications;
 
 class GalleryController extends Controller
 {
+    public function index()
+    {
+        \Title::prepend(trans('dashboard.title.prepend'));
+        \Title::append(trans('gallery::gallery.admin.title.index'));
+
+        return view('gallery::admin.index');
+    }
 //    public function adminContactsIndex()
 //    {
 //        \Title::prepend(trans('dashboard.title.prepend'));
