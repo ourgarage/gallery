@@ -2,39 +2,22 @@
 
 @section('body-title')
     {{ trans('gallery::gallery.admin.categories-create-update.title') }}
-
-    <a href="{{ route('gallery::categories::create') }}" class="btn btn-success pull-right">
-        <i class="fa fa-plus"></i> {{ trans('gallery::gallery.admin.button.create') }}
-    </a>
 @endsection
 
 @section('body')
-    <div>
-        @if(isset($category))
-
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>{{ trans('contacts::contacts.admin.table.title-text') }}</th>
-                        <th>{{ trans('contacts::contacts.admin.table.title-update') }}</th>
-                        <th>{{ trans('contacts::contacts.admin.table.title-options') }}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                    </tr>
-                    </tbody>
-                </table>
+    <div class="container-fluid">
+        @include('admin.basis.notifications-page')
+        <form role="form" method="POST" action="{{ route('login.post') }}">
+            {!! csrf_field() !!}
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group has-feedback">
+                    <input type="email" name="email" class="form-control" placeholder="{{ trans('auth.form.login-email-placeholder') }}"
+                           value="{{ old('email') }}">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
             </div>
-        @else
-            <div class="no-results text-center">
-                <i class="fa fa-tags fa-3x"></i>
-                <p>{{ trans('gallery::gallery.admin.categories-index.empty') }}</p>
-            </div>
-        @endif
+            <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('auth.button.login-submit') }}</button>
+        </form>
     </div>
 @endsection
 
