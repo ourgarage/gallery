@@ -6,7 +6,7 @@ use Ourgarage\Gallery\Models\GalleryCategory;
 
 class GalleryPresenter
 {
-    public function getAllCategories()
+    public static function getAllCategories()
     {
         return GalleryCategory::get();
     }

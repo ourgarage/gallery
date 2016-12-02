@@ -16,8 +16,7 @@ class GalleryCategoriesController extends Controller
      */
     public function index()
     {
-        $categories = new GalleryPresenter();
-        $categories = $categories->getAllCategories();
+        $categories = GalleryPresenter::getAllCategories();
 
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('gallery::gallery.admin.title.categories-index'));
