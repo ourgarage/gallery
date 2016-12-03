@@ -17,7 +17,7 @@
                         {{ trans('gallery::gallery.admin.categories-create.form.name.title') }}
                     </label>
                     <div class="input-group col-sm-9">
-                        <input type="text" name="name"
+                        <input type="text" name="name" value="{{ old('name', isset($category) ? $category->name : '') }}"
                                placeholder="{{ trans('gallery::gallery.admin.categories-create.form.name.placeholder') }}"
                                class="form-control" required autofocus>
                         <span class="input-group-addon"><i class="fa fa-tag"></i></span>
@@ -29,6 +29,7 @@
                     </label>
                     <div class="input-group col-sm-9">
                         <input type="text" name="description"
+                               value="{{ old('description', isset($category) ? $category->description : '') }}"
                                placeholder="{{ trans('gallery::gallery.admin.categories-create.form.description.placeholder') }}"
                                class="form-control">
                         <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
@@ -39,7 +40,7 @@
                         {{ trans('gallery::gallery.admin.categories-create.form.icon.title') }}
                     </label>
                     <div class="input-group col-sm-9">
-                        <input type="text" name="icon"
+                        <input type="text" name="icon" value="{{ old('icon', isset($category) ? $category->icon : '') }}"
                                placeholder="{{ trans('gallery::gallery.admin.categories-create.form.icon.placeholder') }}"
                                class="form-control">
                         <span class="input-group-addon"><i class="fa fa-font-awesome"></i></span>

@@ -39,6 +39,10 @@ return [
         ],
         'button' => [
             'create' => 'Create'
+        ],
+        'notification' => [
+            'insert-error' => 'An unexpected error occurred. Try again.',
+            'insert-success' => 'New record successfully created'
         ]
     ]
 

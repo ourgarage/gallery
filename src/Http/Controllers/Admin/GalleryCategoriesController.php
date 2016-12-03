@@ -41,18 +41,26 @@ class GalleryCategoriesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  GalleryCategoryRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(GalleryCategoryRequest $request)
     {
-        dd('CREATE');
+        $er = GalleryPresenter::createCategory($request);
+
+        if ($er) {
+            Notifications::error(trans('gallery::gallery.admin.notification.insert-error'), 'top');
+            return redirect()->back()->withInput();
+        }
+
+        Notifications::success(trans('gallery::gallery.admin.notification.insert-success'), 'top');
+        return redirect()->route('gallery::categories::index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -63,7 +71,7 @@ class GalleryCategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -74,8 +82,8 @@ class GalleryCategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -86,7 +94,7 @@ class GalleryCategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
