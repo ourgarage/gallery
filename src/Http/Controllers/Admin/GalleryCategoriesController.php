@@ -5,6 +5,7 @@ namespace Ourgarage\Gallery\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Notifications;
+use Ourgarage\Gallery\Http\Requests\GalleryCategoryRequest;
 use Ourgarage\Gallery\Presenters\GalleryPresenter;
 
 class GalleryCategoriesController extends Controller
@@ -43,9 +44,9 @@ class GalleryCategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GalleryCategoryRequest $request)
     {
-        //
+        dd('CREATE');
     }
 
     /**
@@ -79,7 +80,7 @@ class GalleryCategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd('UPDATE ' . $id);
     }
 
     /**

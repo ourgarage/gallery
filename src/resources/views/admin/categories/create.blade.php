@@ -8,19 +8,10 @@
     <section class="content">
         <div class="container-fluid">
             @include('admin.basis.notifications-page')
-            {{--<form class="form-horizontal" role="form" method="POST" action="{{ route('login.post') }}">--}}
-            {{--{!! csrf_field() !!}--}}
-            {{--<div class="form-group has-feedback">--}}
-            {{--<label class="col-md-2">Title : *</label>--}}
-            {{--<div class="col-md-8">--}}
-            {{--<input type="text" name="title" class="form-control" value="">--}}
-            {{--<span class="glyphicon glyphicon-header form-control-feedback"></span>--}}
-            {{--</div>--}}
-            {{--</div>--}}
-            {{--<button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('auth.button.login-submit') }}</button>--}}
-            {{--</form>--}}
-
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="POST"
+                  action="{{ isset($category) ? route('gallery::categories::update', ['id' => $category->id]) : route('gallery::categories::store') }}">
+                {{ csrf_field() }}
+                {{ !isset($category) ?: method_field('PUT') }}
                 <div class="form-group">
                     <label class="col-sm-2 control-label">
                         {{ trans('gallery::gallery.admin.categories-create.form.name.title') }}
@@ -28,7 +19,7 @@
                     <div class="input-group col-sm-9">
                         <input type="text" name="name"
                                placeholder="{{ trans('gallery::gallery.admin.categories-create.form.name.placeholder') }}"
-                               class="form-control">
+                               class="form-control" required autofocus>
                         <span class="input-group-addon"><i class="fa fa-tag"></i></span>
                     </div>
                 </div>
