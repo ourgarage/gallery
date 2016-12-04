@@ -32,12 +32,29 @@ class GalleryPresenter
         }
     }
 
+    /**
+     * @param $id
+     * @return bool
+     */
     public static function getCategoryById($id)
     {
         try {
             return GalleryCategory::find($id);
         } catch (QueryException $e) {
             return false;
+        }
+    }
+
+    public static function updateCategory($data, $id)
+    {
+        try {
+            GalleryCategory::where('id', $id)->update([
+                'name' => $data->name,
+                'description' => $data->description,
+                'icon' => $data->icon
+            ]);
+        } catch (QueryException $e) {
+            return true;
         }
     }
 }

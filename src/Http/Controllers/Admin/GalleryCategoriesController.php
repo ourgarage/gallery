@@ -101,7 +101,7 @@ class GalleryCategoriesController extends Controller
             return redirect()->back()->withInput();
         }
 
-        Notifications::success(trans('gallery::gallery.admin.notification.insert-success'), 'top');
+        Notifications::success(trans('gallery::gallery.admin.notification.update-success'), 'top');
         return redirect()->route('gallery::categories::index');
     }
 
