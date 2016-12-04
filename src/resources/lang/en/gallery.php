@@ -46,7 +46,11 @@ return [
             'categories-update' => 'Category update'
         ],
         'button' => [
-            'create' => 'Create'
+            'create' => 'Create',
+            'tooltip' => [
+                'edit' => 'Edit',
+                'remove' => 'Remove'
+            ]
         ],
         'notification' => [
             'insert-error' => 'An unexpected error occurred. Try again.',

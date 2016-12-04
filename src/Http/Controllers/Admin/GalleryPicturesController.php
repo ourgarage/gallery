@@ -5,6 +5,7 @@ namespace Ourgarage\Gallery\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Notifications;
+use Ourgarage\Gallery\Presenters\GalleryPresenter;
 
 class GalleryPicturesController extends Controller
 {

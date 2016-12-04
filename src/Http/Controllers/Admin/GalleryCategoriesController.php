@@ -17,12 +17,12 @@ class GalleryCategoriesController extends Controller
      */
     public function index()
     {
-        $categories = GalleryPresenter::getAllCategories();
+        $categories = GalleryPresenter::getAllCategories(true);
 
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('gallery::gallery.admin.title.categories-index'));
 
-        return view('gallery::admin.categories.index')->withCategories($categories);
+        return view('gallery::admin.categories.index', compact('categories'));
     }
 
     /**

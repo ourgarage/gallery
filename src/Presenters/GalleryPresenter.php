@@ -8,14 +8,18 @@ use Illuminate\Database\QueryException;
 class GalleryPresenter
 {
     /**
+     * Gallery Categories
+     *
      * @return mixed
      */
-    public static function getAllCategories()
+    public static function getAllCategories($desc = null)
     {
-        return GalleryCategory::get();
+        return GalleryCategory::orderBy('id', !is_null($desc) ? 'desc' : 'asc')->get();
     }
 
     /**
+     * Gallery Categories
+     *
      * @param $data
      * @return bool
      */
@@ -33,6 +37,8 @@ class GalleryPresenter
     }
 
     /**
+     * Gallery Categories
+     *
      * @param $id
      * @return bool
      */
@@ -46,6 +52,8 @@ class GalleryPresenter
     }
 
     /**
+     * Gallery Categories
+     *
      * @param $data
      * @param $id
      * @return bool
@@ -64,6 +72,8 @@ class GalleryPresenter
     }
 
     /**
+     * Gallery Categories
+     *
      * @param $id
      * @return bool
      */

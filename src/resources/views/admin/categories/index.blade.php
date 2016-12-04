@@ -29,18 +29,21 @@
                         <tr>
                             <th>{{ $category->id }}</th>
                             <td>{{ $category->name }}</td>
-                            <td><span data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                            <td><span data-toggle="tooltip" data-placement="top" title="{{ $category->description }}">
                                     {{ str_limit($category->description, 50, '...') }}
                                 </span></td>
                             <td><i class="{{ $category->icon }} fa-lg"></i></td>
                             <td>{{ '----' }}</td>
                             <td>
                                 <a href="{{ route('gallery::categories::edit', $category->id) }}"
-                                   class="btn btn-warning btn-xs">
+                                   class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top"
+                                   title="{{ trans('gallery::gallery.admin.button.tooltip.edit') }}">
                                     <i class="fa fa-pencil"></i>
                                 </a>
                                 <a href="{{ route('gallery::categories::destroy', $category->id) }}"
-                                   class="btn btn-danger btn-xs" onclick="return buttonConfirmation(event, 'Delete?')">
+                                   class="btn btn-danger btn-xs" onclick="return buttonConfirmation(event, 'Delete?')"
+                                   data-toggle="tooltip" data-placement="top"
+                                   title="{{ trans('gallery::gallery.admin.button.tooltip.remove') }}">
                                     <i class="fa fa-remove"></i>
                                 </a>
                             </td>
