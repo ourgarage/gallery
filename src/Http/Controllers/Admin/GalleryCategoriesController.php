@@ -76,7 +76,13 @@ class GalleryCategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = GalleryPresenter::getCategoryById($id);
+        !$category == false ?: abort(404);
+
+        \Title::prepend(trans('dashboard.title.prepend'));
+        \Title::append(trans('gallery::gallery.admin.title.categories-create'));
+
+        return view('gallery::admin.categories.create', compact('category'));
     }
 
     /**
@@ -86,9 +92,17 @@ class GalleryCategoriesController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GalleryCategoryRequest $request, $id)
     {
-        dd('UPDATE ' . $id);
+        $er = GalleryPresenter::updateCategory($request, $id);
+
+        if ($er) {
+            Notifications::error(trans('gallery::gallery.admin.notification.insert-error'), 'top');
+            return redirect()->back()->withInput();
+        }
+
+        Notifications::success(trans('gallery::gallery.admin.notification.insert-success'), 'top');
+        return redirect()->route('gallery::categories::index');
     }
 
     /**

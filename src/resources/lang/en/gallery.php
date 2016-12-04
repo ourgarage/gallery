@@ -5,7 +5,14 @@ return [
     'admin' => [
         'categories-index' => [
             'title' => 'Categories',
-            'empty' => 'No categories'
+            'empty' => 'No categories',
+            'table' => [
+                'name' => 'Name',
+                'descriptions' => 'Descriptions',
+                'icon' => 'Icon',
+                'pictures' => 'Pics',
+                'options' => 'Options'
+            ]
         ],
         'categories-create' => [
             'title' => 'Category create',
@@ -35,14 +42,16 @@ return [
         'title' => [
             'pictures-index' => 'Pictures gallery',
             'categories-index' => 'Pictures categories',
-            'categories-create' => 'Category create'
+            'categories-create' => 'Category create',
+            'categories-update' => 'Category update'
         ],
         'button' => [
             'create' => 'Create'
         ],
         'notification' => [
             'insert-error' => 'An unexpected error occurred. Try again.',
-            'insert-success' => 'New record successfully created'
+            'insert-success' => 'New record successfully created',
+            'update-success' => 'The record successfully updated'
         ]
     ]
 

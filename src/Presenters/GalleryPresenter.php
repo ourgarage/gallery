@@ -31,4 +31,13 @@ class GalleryPresenter
             return true;
         }
     }
+
+    public static function getCategoryById($id)
+    {
+        try {
+            return GalleryCategory::find($id);
+        } catch (QueryException $e) {
+            return false;
+        }
+    }
 }

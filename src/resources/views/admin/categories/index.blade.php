@@ -11,21 +11,41 @@
 @section('body')
     <div>
         @if(!$categories->isEmpty())
-
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>{{ trans('contacts::contacts.admin.table.title-text') }}</th>
-                        <th>{{ trans('contacts::contacts.admin.table.title-update') }}</th>
-                        <th>{{ trans('contacts::contacts.admin.table.title-options') }}</th>
+                        <th class="col-xs-1">Id</th>
+                        <th>{{ trans('gallery::gallery.admin.categories-index.table.name') }}</th>
+                        <th>{{ trans('gallery::gallery.admin.categories-index.table.descriptions') }}</th>
+                        <th class="col-xs-1">{{ trans('gallery::gallery.admin.categories-index.table.icon') }}</th>
+                        <th class="col-xs-1">{{ trans('gallery::gallery.admin.categories-index.table.pictures') }}</th>
+                        <th class="col-xs-1">{{ trans('gallery::gallery.admin.categories-index.table.options') }}</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                    </tr>
+
+                    @foreach($categories as $category)
+                        <tr>
+                            <th>{{ $category->id }}</th>
+                            <td>{{ $category->name }}</td>
+                            <td><span data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                    {{ str_limit($category->description, 50, '...') }}
+                                </span></td>
+                            <td><i class="{{ $category->icon }} fa-lg"></i></td>
+                            <td>{{ '----' }}</td>
+                            <td>
+                                <a href="{{ route('gallery::categories::edit', $category->id) }}"
+                                   class="btn btn-warning btn-xs">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="{{ route('gallery::categories::destroy', $category->id) }}"
+                                   class="btn btn-danger btn-xs" onclick="return buttonConfirmation(event, 'Delete?')">
+                                    <i class="fa fa-remove"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

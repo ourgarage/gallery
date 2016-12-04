@@ -11,7 +11,7 @@
             <form class="form-horizontal" method="POST"
                   action="{{ isset($category) ? route('gallery::categories::update', ['id' => $category->id]) : route('gallery::categories::store') }}">
                 {{ csrf_field() }}
-                {{ !isset($category) ?: method_field('PUT') }}
+                {{ isset($category) ? method_field('PUT') : '' }}
                 <div class="form-group">
                     <label class="col-sm-2 control-label">
                         {{ trans('gallery::gallery.admin.categories-create.form.name.title') }}
