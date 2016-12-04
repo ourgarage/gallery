@@ -1,0 +1,20 @@
+#file_upload {
+  width: 98%;
+  margin: 1.3em auto 1.5em auto;
+  min-height: 5em;
+  background: #00a65a;
+  box-shadow: 0 0 0 2px #00a65a,
+    0 0 0 5px #00a65a,
+    0 0 0 9px #00a65a;
+  cursor: pointer;
+}
+#file_upload i {
+  padding: .5em 0 .26em 0;
+  color: #00a65a;
+}
+#file_upload #choose_file {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.23em;
+  padding-bottom: 1em;
+  color: #00a65a;
+}

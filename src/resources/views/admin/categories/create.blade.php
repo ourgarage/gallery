@@ -5,7 +5,6 @@
 @endsection
 
 @section('body')
-    <section class="content">
         <div class="container-fluid">
             @include('admin.basis.notifications-page')
             <form class="form-horizontal" method="POST"
@@ -62,8 +61,6 @@
                     </div>
                 </div>
             </form>
-
         </div>
-    </section>
 @endsection
 
