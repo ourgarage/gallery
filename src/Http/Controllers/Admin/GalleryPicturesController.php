@@ -14,12 +14,14 @@ class GalleryPicturesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(GalleryPresenter $presenter)
     {
+        $pictures = $presenter->getAllPictures(true);
+
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('gallery::gallery.admin.title.pictures-index'));
 
-        return view('gallery::admin.pictures.index');
+        return view('gallery::admin.pictures.index', compact('pictures'));
     }
 
     /**
@@ -27,9 +29,14 @@ class GalleryPicturesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(GalleryPresenter $presenter)
     {
-        //
+        $categories = $presenter->getAllCategories(null, 'name');
+
+        \Title::prepend(trans('dashboard.title.prepend'));
+        \Title::append(trans('gallery::gallery.admin.title.pictures-create'));
+
+        return view('gallery::admin.pictures.create', compact('categories'));
     }
 
     /**

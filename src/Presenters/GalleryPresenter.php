@@ -4,6 +4,7 @@ namespace Ourgarage\Gallery\Presenters;
 
 use Ourgarage\Gallery\Models\GalleryCategory;
 use Illuminate\Database\QueryException;
+use Ourgarage\Gallery\Models\GalleryPicture;
 
 class GalleryPresenter
 {
@@ -12,9 +13,9 @@ class GalleryPresenter
      *
      * @return mixed
      */
-    public static function getAllCategories($desc = null)
+    public function getAllCategories($sort = null, $key = null)
     {
-        return GalleryCategory::orderBy('id', !is_null($desc) ? 'desc' : 'asc')->get();
+        return GalleryCategory::orderBy(is_null($key) ? 'id' : $key, is_null($sort) ? 'asc' : 'desc')->get();
     }
 
     /**
@@ -23,7 +24,7 @@ class GalleryPresenter
      * @param $data
      * @return bool
      */
-    public static function createCategory($data)
+    public function createCategory($data)
     {
         try {
             GalleryCategory::create([
@@ -42,7 +43,7 @@ class GalleryPresenter
      * @param $id
      * @return bool
      */
-    public static function getCategoryById($id)
+    public function getCategoryById($id)
     {
         try {
             return GalleryCategory::find($id);
@@ -58,7 +59,7 @@ class GalleryPresenter
      * @param $id
      * @return bool
      */
-    public static function updateCategory($data, $id)
+    public function updateCategory($data, $id)
     {
         try {
             GalleryCategory::where('id', $id)->update([
@@ -77,12 +78,23 @@ class GalleryPresenter
      * @param $id
      * @return bool
      */
-    public static function destroyCategory($id)
+    public function destroyCategory($id)
     {
         try {
             GalleryCategory::destroy($id);
         } catch (QueryException $e) {
             return true;
         }
+    }
+
+    /**
+     * Gallery Pictures
+     *
+     * @param null $desc
+     * @return mixed
+     */
+    public function getAllPictures($desc = null)
+    {
+        return GalleryPicture::orderBy('id', !is_null($desc) ? 'desc' : 'asc')->get();
     }
 }

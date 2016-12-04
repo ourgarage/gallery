@@ -15,9 +15,9 @@ class GalleryCategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(GalleryPresenter $presenter)
     {
-        $categories = GalleryPresenter::getAllCategories(true);
+        $categories = $presenter->getAllCategories(true);
 
         \Title::prepend(trans('dashboard.title.prepend'));
         \Title::append(trans('gallery::gallery.admin.title.categories-index'));
@@ -44,9 +44,9 @@ class GalleryCategoriesController extends Controller
      * @param  GalleryCategoryRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GalleryCategoryRequest $request)
+    public function store(GalleryCategoryRequest $request, GalleryPresenter $presenter)
     {
-        $er = GalleryPresenter::createCategory($request);
+        $er = $presenter->createCategory($request);
 
         if ($er) {
             Notifications::error(trans('gallery::gallery.admin.notification.insert-error'), 'top');
@@ -63,9 +63,9 @@ class GalleryCategoriesController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, GalleryPresenter $presenter)
     {
-        $category = GalleryPresenter::getCategoryById($id);
+        $category = $presenter->getCategoryById($id);
         !$category == false ?: abort(404);
 
         \Title::prepend(trans('dashboard.title.prepend'));
@@ -81,9 +81,9 @@ class GalleryCategoriesController extends Controller
      * @param $id
      * @return $this|\Illuminate\Http\RedirectResponse
      */
-    public function update(GalleryCategoryRequest $request, $id)
+    public function update(GalleryCategoryRequest $request, GalleryPresenter $presenter, $id)
     {
-        $er = GalleryPresenter::updateCategory($request, $id);
+        $er = $presenter->updateCategory($request, $id);
 
         if ($er) {
             Notifications::error(trans('gallery::gallery.admin.notification.insert-error'), 'top');
@@ -100,9 +100,9 @@ class GalleryCategoriesController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(GalleryPresenter $presenter, $id)
     {
-        $er = GalleryPresenter::destroyCategory($id);
+        $er = $presenter->destroyCategory($id);
 
         if ($er) {
             Notifications::error(trans('gallery::gallery.admin.notification.destroy-error'), 'top');

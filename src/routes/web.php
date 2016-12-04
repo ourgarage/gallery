@@ -6,7 +6,8 @@ Route::group([
     'prefix' => 'admin/gallery'
 ], function () {
 
-    Route::get('/pictures', 'Admin\GalleryPicturesController@index')->name('gallery::pictures::index');
+    Route::get('pictures', 'Admin\GalleryPicturesController@index')->name('gallery::pictures::index');
+    Route::get('pictures/create', 'Admin\GalleryPicturesController@create')->name('gallery::pictures::create');
 
 
     Route::get('categories', 'Admin\GalleryCategoriesController@index')->name('gallery::categories::index');
