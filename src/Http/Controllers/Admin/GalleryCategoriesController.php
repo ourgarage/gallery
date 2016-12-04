@@ -113,6 +113,14 @@ class GalleryCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $er = GalleryPresenter::destroyCategory($id);
+
+        if ($er) {
+            Notifications::error(trans('gallery::gallery.admin.notification.destroy-error'), 'top');
+            return redirect()->back()->withInput();
+        }
+
+        Notifications::success(trans('gallery::gallery.admin.notification.destroy-success'), 'top');
+        return redirect()->route('gallery::categories::index');
     }
 }

@@ -45,6 +45,11 @@ class GalleryPresenter
         }
     }
 
+    /**
+     * @param $data
+     * @param $id
+     * @return bool
+     */
     public static function updateCategory($data, $id)
     {
         try {
@@ -53,6 +58,19 @@ class GalleryPresenter
                 'description' => $data->description,
                 'icon' => $data->icon
             ]);
+        } catch (QueryException $e) {
+            return true;
+        }
+    }
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public static function destroyCategory($id)
+    {
+        try {
+            GalleryCategory::destroy($id);
         } catch (QueryException $e) {
             return true;
         }

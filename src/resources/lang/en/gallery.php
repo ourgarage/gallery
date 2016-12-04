@@ -51,7 +51,9 @@ return [
         'notification' => [
             'insert-error' => 'An unexpected error occurred. Try again.',
             'insert-success' => 'New record successfully created',
-            'update-success' => 'The record successfully updated'
+            'update-success' => 'The record successfully updated',
+            'destroy-error' => 'An unexpected error occurred. Try again.',
+            'destroy-success' => 'The record successfully destroyed'
         ]
     ]
 
