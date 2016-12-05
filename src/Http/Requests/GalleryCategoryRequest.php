@@ -28,6 +28,7 @@ class GalleryCategoryRequest extends FormRequest
     public function rules()
     {
         $rules = [
+            'description' => 'max:255',
             'name' => [
                 'required',
                 Rule::unique('gallery_categories')->ignore($this->route('id'))

@@ -8,6 +8,8 @@ Route::group([
 
     Route::get('pictures', 'Admin\GalleryPicturesController@index')->name('gallery::pictures::index');
     Route::get('pictures/create', 'Admin\GalleryPicturesController@create')->name('gallery::pictures::create');
+    Route::post('pictures', 'Admin\GalleryPicturesController@store')->name('gallery::pictures::store');
+    Route::put('pictures/{id}', 'Admin\GalleryPicturesController@update')->name('gallery::pictures::update');
 
 
     Route::get('categories', 'Admin\GalleryCategoriesController@index')->name('gallery::categories::index');

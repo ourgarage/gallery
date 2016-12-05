@@ -48,7 +48,7 @@ return [
             'form' => [
                 'name' => [
                     'title' => 'Name',
-                    'placeholder' => 'Enter a category name'
+                    'categories-placeholder' => 'Enter a category name',
                 ],
                 'description' => [
                     'title' => 'Description',
