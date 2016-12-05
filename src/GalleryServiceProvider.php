@@ -16,6 +16,10 @@ class GalleryServiceProvider extends ServiceProvider
             __DIR__.'/resources/views/admin/' => base_path('resources/views/vendor/gallery'),
         ]);
 
+        $this->publishes([
+            __DIR__.'/resources/assets' => public_path('packages/gallery'),
+        ], 'gallery');
+
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
         $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'gallery');

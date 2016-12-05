@@ -1,5 +1,10 @@
 @extends('admin.main')
 
+@section('css')
+    <link href="/libs/select2/select2.min.css" rel="stylesheet" type='text/css'>
+    <link href="/packages/gallery/css/gallery.css" rel="stylesheet" type='text/css'>
+@endsection
+
 @section('body-title')
     {{ trans('gallery::gallery.admin.pictures-create.title') }}
 @endsection
@@ -40,4 +45,11 @@
             <br>
         </form>
     </div>
+@endsection
+
+@section('js')
+    <script src="/libs/select2/select2.min.js"></script>
+    <script src="/libs/select2/i18n/{{ App::getLocale() }}.js"></script>
+    <script>var locale = "{{ App::getLocale() }}"</script>
+    <script src="/packages/gallery/js/gallery.js"></script>
 @endsection
