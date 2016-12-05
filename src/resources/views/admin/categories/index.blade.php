@@ -40,12 +40,16 @@
                                    title="{{ trans('gallery::gallery.admin.button.tooltip.edit') }}">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <a href="{{ route('gallery::categories::destroy', $category->id) }}"
-                                   class="btn btn-danger btn-xs" onclick="return buttonConfirmation(event, 'Delete?')"
-                                   data-toggle="tooltip" data-placement="top"
-                                   title="{{ trans('gallery::gallery.admin.button.tooltip.remove') }}">
-                                    <i class="fa fa-remove"></i>
-                                </a>
+                                <form class="inline" action="{{ route('gallery::categories::destroy', $category->id) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button type="submit" class="btn btn-danger btn-xs"
+                                            onclick="return buttonConfirmation(event, 'Delete?')"
+                                            data-toggle="tooltip" data-placement="top"
+                                            title="{{ trans('gallery::gallery.admin.button.tooltip.remove') }}">
+                                        <i class="fa fa-remove"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
