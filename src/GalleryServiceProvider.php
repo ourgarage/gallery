@@ -8,7 +8,7 @@ class GalleryServiceProvider extends ServiceProvider
 {
 
     public function boot(){
-        require __DIR__ . '/Http/routes.php';
+        require __DIR__ . '/routes/web.php';
 
         $this->loadViewsFrom(__DIR__.'/resources/views', 'gallery');
 
@@ -16,13 +16,18 @@ class GalleryServiceProvider extends ServiceProvider
             __DIR__.'/resources/views/admin/' => base_path('resources/views/vendor/gallery'),
         ]);
 
+        $this->publishes([
+            __DIR__.'/resources/assets' => public_path('packages/gallery'),
+        ], 'gallery');
+
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
         $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'gallery');
     }
 
     public function register() {
-        $this->app->make('Ourgarage\Gallery\Http\Controllers\GalleryController');
+        $this->app->make('Ourgarage\Gallery\Http\Controllers\Admin\GalleryPicturesController');
+        $this->app->make('Ourgarage\Gallery\Http\Controllers\Admin\GalleryCategoriesController');
         $this->app->make('Ourgarage\Gallery\Models\GalleryPicture');
         $this->app->make('Ourgarage\Gallery\Models\GalleryCategory');
         $this->app->make('Ourgarage\Gallery\Models\GalleryCategoriesList');
