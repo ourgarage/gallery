@@ -19,7 +19,7 @@
             <div class="form-group">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-9 input-group">
-                    fbgbbggb
+                    <select id="select2-categories" class="form-control" name="categories"></select>
                 </div>
             </div>
             <div class="form-group">
@@ -49,7 +49,8 @@
 
 @section('js')
     <script src="/libs/select2/select2.min.js"></script>
-    <script src="/libs/select2/i18n/{{ App::getLocale() }}.js"></script>
     <script>var locale = "{{ App::getLocale() }}"; var placeholder = "{{ trans('gallery::gallery.admin.pictures-create.form.name.categories-placeholder') }}";</script>
+    <script src="/libs/select2/i18n/{{ App::getLocale() }}.js"></script>
     <script src="/packages/gallery/js/gallery.js"></script>
+    <script src="/packages/gallery/js/select2-add-picture.js"></script>
 @endsection
